@@ -428,7 +428,8 @@
         } else {
           this.$element.val(val);
           this.$target.val(val);
-          this.$container.addClass('combobox-selected');
+          if (this.options.hide_x_button == 'no') 
+            this.$container.addClass('combobox-selected');
         }
       }
       if (!this.mousedover && this.shown) {setTimeout(function () { that.hide(); }, 200);}
