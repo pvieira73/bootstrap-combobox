@@ -89,7 +89,10 @@
       if (selected) {
         this.$element.val(selected);
         this.$target.val(selectedValue);
-        this.$container.addClass('combobox-selected');
+
+        if (this.options.hide_x_button == 'no') 
+          this.$container.addClass('combobox-selected');
+
         this.selected = true;
       }
       return source;
@@ -119,7 +122,10 @@
       this.$element.val(this.updater(val)).trigger('change');
       this.$target.val(this.map[val]).trigger('change');
       this.$source.val(this.map[val]).trigger('change');
-      this.$container.addClass('combobox-selected');
+
+      if (this.options.hide_x_button == 'no')
+        this.$container.addClass('combobox-selected');
+
       this.selected = true;
       return this.hide();
     }
@@ -462,6 +468,7 @@
     bsVersion: '4'
   , menu: '<ul class="typeahead typeahead-long dropdown-menu"></ul>'
   , item: '<li><a href="#" class="dropdown-item"></a></li>'
+  , hide_x_button: 'no'
   };
 
   $.fn.combobox.Constructor = Combobox;
